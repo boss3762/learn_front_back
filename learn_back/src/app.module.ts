@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { CoursesController } from './courses.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config'
-import { User } from './Entity/User.entity';
-import { Address } from './Entity/Address.entity';
+import { User } from './user/entities/user.entity';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -20,10 +20,11 @@ import { Address } from './Entity/Address.entity';
         username: configService.get('DB_username'),
         password: configService.get('DB_password'),
         database: configService.get('DB_database'),
-        entities: [User,Address],
+        entities: [User],
         synchronize: true,
       })
     }),
+    UserModule,
   ],
   controllers: [AppController, CoursesController],
   providers: [AppService],
