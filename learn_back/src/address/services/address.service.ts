@@ -16,7 +16,9 @@ export class AddressService {
       }
       
       async findAllPosts(): Promise<AddressInfo[]> {
-        return await this.addressInfoRepository.find();
+        return await this.addressInfoRepository.find({
+          relations: ['addresses']
+        });
       }
       
       async updatePost(

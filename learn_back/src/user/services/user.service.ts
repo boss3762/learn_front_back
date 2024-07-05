@@ -16,7 +16,11 @@ export class UserService {
       }
       
       async findAllPosts(): Promise<UserInfo[]> {
-        return await this.userInfoRepository.find();
+        return await this.userInfoRepository.find({
+            relations: {
+                addresses: true 
+            }
+        });
       }
 
       async updatePost(
