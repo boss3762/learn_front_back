@@ -1,5 +1,6 @@
 export interface UserInfo {
     id?: number;
-    name?: string;
-    createdAt?: Date;
+    firstname?: string;
+    lastname?: string;
+    phone?: string;
   }

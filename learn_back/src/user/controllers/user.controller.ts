@@ -11,7 +11,7 @@ import { DeleteResult, UpdateResult } from 'typeorm';
 import { UserInfo } from '../models/user.interface';
 import { UserService } from '../services/user.service';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
     constructor(private userService: UserService) { }
 
